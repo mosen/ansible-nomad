@@ -26,3 +26,11 @@ def test_nomad_rpc_port(host):
 def test_nomad_serf_port(host):
     s = host.socket("tcp://0.0.0.0:4648")
     assert s.is_listening
+
+
+def test_nomad_status(host):
+    host.run_test("/usr/local/bin/nomad status")
+
+
+def test_nomad_server_members(host):
+    host.run_test("/usr/local/bin/nomad server members")

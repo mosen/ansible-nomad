@@ -3,9 +3,8 @@
   hosts: all
   become: yes
   vars:
-    nomad_bind_address: "0.0.0.0"
     nomad_group_name: molecule
     nomad_user: nomad
+    nomad_node_role: both
   roles:
     - role: ansible-nomad
-  tasks:

@@ -25,3 +25,17 @@ verifier:
   name: testinfra
   lint:
     name: flake8
+scenario:
+  test_sequence:
+    - lint
+    - destroy
+    - dependency
+    - syntax
+    - create
+    - prepare
+    - converge
+    # - idempotence  # Because we need to read a checksum file on every execution and this is caught by molecule.
+    - side_effect
+    - verify
+    - cleanup
+    - destroy

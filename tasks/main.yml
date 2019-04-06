@@ -20,9 +20,13 @@
 
 - name: Expose bind_address, advertise_address and node_role as facts
   set_fact:
-    nomad_bind_address: "{{ nomad_bind_address }}"
     nomad_advertise_address: "{{ nomad_advertise_address }}"
     nomad_node_role: "{{ nomad_node_role }}"
+
+- name: Expose bind_address as fact if defined
+  set_fact:
+    nomad_bind_address: "{{ nomad_bind_address }}"
+  when: nomad_bind_address is defined
 
 - name: Include user and group settings
   include: user_group.yml

@@ -79,7 +79,8 @@ nomad_meta: {}
 nomad_bootstrap_expect: "{{ nomad_servers | count or 3 }}"
 
 ### Addresses
-nomad_bind_address: "{{ hostvars[inventory_hostname]['ansible_'+ nomad_iface ]['ipv4']['address'] }}"
+# nomad_bind_address: "{{ hostvars[inventory_hostname]['ansible_'+ nomad_iface ]['ipv4']['address'] }}"
+nomad_bind_address: ~  # I changed this to empty because why would ansible behaviour deviate from Nomad defaults
 nomad_advertise_address: "{{ hostvars[inventory_hostname]['ansible_' + nomad_iface]['ipv4']['address'] }}"
 
 ### Ports

@@ -5,8 +5,9 @@ datacenter = "{{ nomad_datacenter }}"
 enable_debug = {{ nomad_debug | bool | lower }}
 disable_update_check = {{ nomad_disable_update_check | bool | lower }}
 
-
+{% if nomad_bind_address %}
 bind_addr = "{{ nomad_bind_address }}"
+{% endif %}
 advertise {
     http = "{{ nomad_advertise_address }}:{{ nomad_ports.http }}"
     rpc = "{{ nomad_advertise_address }}:{{ nomad_ports.rpc }}"
